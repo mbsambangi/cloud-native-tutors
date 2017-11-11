@@ -1,0 +1,18 @@
+version: '2.1'
+services:
+  tutors-config-service:
+    build: tutors-config-service
+    image: cnt/tutors-config-image
+    ports:
+      - 8888:8888
+  tutors-eureka-service:
+    build: tutors-eureka-service
+    image: cnt/tutors-eureka-image
+    ports:
+      - 8761:8761
+  tutors-account-service:
+    build: tutors-account-service
+    image: cnt/tutors-account-image
+    depends_on:
+      - tutors-config-service
+      - tutors-eureka-service
