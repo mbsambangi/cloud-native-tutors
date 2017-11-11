@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: tutors-account-service
+  profiles:
+    active: dev
+  cloud:
+    config:
+      uri: http://localhost:8888
+      label: tutors-account-service
+      username: cnt-config
+      password: cnt-config-secret
+
+
