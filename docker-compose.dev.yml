@@ -10,9 +10,15 @@ services:
     image: cnt/tutors-eureka-image
     ports:
       - 8761:8761
+  tutors-log-service:
+    build: tutors-log-service
+    image: cnt/tutors-log-service
+    ports:
+      - 8889:8889
   tutors-account-service:
     build: tutors-account-service
     image: cnt/tutors-account-image
     depends_on:
       - tutors-config-service
       - tutors-eureka-service
+      - tutors-log-service
